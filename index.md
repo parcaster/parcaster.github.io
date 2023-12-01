@@ -4,7 +4,7 @@ layout: default
 
 Wähle deine gewünschte Parkzeit:
 
-<input type="text" id="datepicker">
+<input type="datetime-local" id="datepicker">
 
 
 Hier unsere Vorschläge
