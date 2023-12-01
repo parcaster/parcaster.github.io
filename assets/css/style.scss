@@ -3,3 +3,8 @@
 
 @import "{{ site.theme }}";
 
+input { display: inline-block;}
+input[type="datetime-local"] {
+     width: 160px;
+     color: red;
+}
