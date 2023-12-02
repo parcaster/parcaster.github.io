@@ -29,7 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
             gridLineWidth: 0
         },
         tooltip: {
-            valueSuffix: ' freie Parkplätze'
+            formatter: function() {
+                return this.x + ': ' + this.y + ' freie Parkplätze';
+              }
         },
         plotOptions: {
             bar: {
