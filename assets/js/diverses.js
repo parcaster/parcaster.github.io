@@ -46,63 +46,65 @@ async function getPrediction(){
 // Highchart-Graph
 async function asyncCall() {
   const metadata = await getMetadata();
-  const prediction = await getPrediction();
+  document.getElementById('btn_prediction').onclick = function() {
+    const prediction = await getPrediction();
     
     // Highchart-Grafik erstellen
-        var data = Object.values(prediction);
-      console.log("data", data)
-        var pp_labels = Object.keys(prediction);
+    var data = Object.values(prediction);
+    console.log("data", data)
+    var pp_labels = Object.keys(prediction);
     console.log("pp_labels", pp_labels)
     
-        // Konfiguration für das Balkendiagramm
-        var chartConfig = {
-            chart: {
-                type: 'bar',
-                renderTo: 'chart-container'
-            },
+    // Konfiguration für das Balkendiagramm
+    var chartConfig = {
+        chart: {
+            type: 'bar',
+            renderTo: 'chart-container'
+        },
+        title: {
+            text: 'Unsere Vorschläge für dich',
+            align: 'left'
+        },
+        xAxis: {
+            categories: pp_labels,
             title: {
-                text: 'Unsere Vorschläge für dich',
-                align: 'left'
+                text: null
             },
-            xAxis: {
-                categories: pp_labels,
-                title: {
-                    text: null
+            gridLineWidth: 1,
+            lineWidth: 0
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Anzahl freie Parkplätze',
+                align: 'high'
+            },
+            gridLineWidth: 0
+        },
+        tooltip: {
+            formatter: function() {
+                return this.x + ': ' + this.y + ' freie Parkplätze';
+              }
+        },
+        plotOptions: {
+            bar: {
+                borderRadius: '50%',
+                dataLabels: {
+                    enabled: true
                 },
-                gridLineWidth: 1,
-                lineWidth: 0
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'Anzahl freie Parkplätze',
-                    align: 'high'
-                },
-                gridLineWidth: 0
-            },
-            tooltip: {
-                formatter: function() {
-                    return this.x + ': ' + this.y + ' freie Parkplätze';
-                  }
-            },
-            plotOptions: {
-                bar: {
-                    borderRadius: '50%',
-                    dataLabels: {
-                        enabled: true
-                    },
-                    groupPadding: 0.1
-                }
-            },
-            colors:['#267CB9'],
-            series: [{
-                showInLegend: false,
-                data: data
-            }]
-        };
-    
-        // Diagramm erstellen
-        var chart = new Highcharts.Chart(chartConfig);
+                groupPadding: 0.1
+            }
+        },
+        colors:['#267CB9'],
+        series: [{
+            showInLegend: false,
+            data: data
+        }]
+    };
+
+    // Diagramm erstellen
+    var chart = new Highcharts.Chart(chartConfig);
+  }​;​
 }
 
 asyncCall();
