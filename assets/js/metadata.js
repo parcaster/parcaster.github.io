@@ -5,6 +5,5 @@ async function getMetadata(){
     const metadata = await response.json();
     console.log(metadata);
 }
-getMetadata();
 
-export { metadata };
+export { getMetadata };
