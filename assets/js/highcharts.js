@@ -18,7 +18,7 @@ function extractValuesByLabel(obj, label, result = []) {
 }
 
 async function asyncCall() {
-    metadata = await getMetadata();
+    const metadata = await getMetadata();
     
     const labelValues = extractValuesByLabel(metadata, 'label');
     console.log('Werte unter dem Schlüssel "label":', labelValues);
