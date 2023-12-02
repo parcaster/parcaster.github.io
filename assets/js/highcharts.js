@@ -1,4 +1,3 @@
-// highcharts-demo.js
 document.addEventListener('DOMContentLoaded', function() {
     // Daten für das Diagramm
     var data = [5, 10, 15, 20, 25];
@@ -6,14 +5,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Konfiguration für das Balkendiagramm
     var chartConfig = {
         chart: {
-            type: 'bar'
+            type: 'bar',
+            renderTo: 'chart-container'
         },
         title: {
             text: 'Unsere Vorschläge für dich',
             align: 'left'
         },
         xAxis: {
-            categories: ['Africa', 'America', 'Asia', 'Europe', 'test'],
+            categories: ['A', 'B', 'C', 'D', 'E'],
             title: {
                 text: null
             },
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             gridLineWidth: 0
         },
         tooltip: {
-            valueSuffix: ' freie Parkplätze'
+            valueSuffix: ' millions'
         },
         plotOptions: {
             bar: {
@@ -39,9 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 groupPadding: 0.1
             }
-        },
-        credits: {
-            enabled: false
         },
         series: [{
             data: data
