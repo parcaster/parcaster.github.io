@@ -104,7 +104,7 @@ async function asyncCall() {
 
     // Diagramm erstellen
     var chart = new Highcharts.Chart(chartConfig);
-  }​
+  }
 }
 
 asyncCall();
