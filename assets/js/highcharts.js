@@ -6,22 +6,44 @@ document.addEventListener('DOMContentLoaded', function() {
     // Konfiguration für das Balkendiagramm
     var chartConfig = {
         chart: {
-            type: 'bar',
-            renderTo: 'chart-container'
+            type: 'bar'
         },
         title: {
-            text: 'Mein erstes Highcharts-Diagramm'
+            text: 'Unsere Vorschläge für dich',
+            align: 'left'
         },
         xAxis: {
-            categories: ['A', 'B', 'C', 'D', 'E']
+            categories: ['Africa', 'America', 'Asia', 'Europe', 'test],
+            title: {
+                text: null
+            },
+            gridLineWidth: 1,
+            lineWidth: 0
         },
         yAxis: {
+            min: 0,
             title: {
-                text: 'Werte'
+                text: 'Anzahl freie Parkplätze',
+                align: 'high'
+            },
+            gridLineWidth: 0
+        },
+        tooltip: {
+            valueSuffix: ' freie Parkplätze'
+        },
+        plotOptions: {
+            bar: {
+                borderRadius: '50%',
+                dataLabels: {
+                    enabled: true
+                },
+                groupPadding: 0.1
             }
         },
+        credits: {
+            enabled: false
+        },
         series: [{
-            name: 'Datenreihe',
             data: data
         }]
     };
