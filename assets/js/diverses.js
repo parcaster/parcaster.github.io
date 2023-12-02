@@ -49,10 +49,10 @@ async function asyncCall() {
   const prediction = await getPrediction();
     
     // Highchart-Grafik erstellen
-    document.addEventListener('DOMContentLoaded', function() {
-        // Daten für das Diagramm
         var data = Object.values(prediction);
+      console.log("data", data)
         var pp_labels = Object.keys(prediction);
+    console.log("pp_labels", pp_labels)
     
         // Konfiguration für das Balkendiagramm
         var chartConfig = {
@@ -103,7 +103,6 @@ async function asyncCall() {
     
         // Diagramm erstellen
         var chart = new Highcharts.Chart(chartConfig);
-    });
 }
 
 asyncCall();
