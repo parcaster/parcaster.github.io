@@ -6,11 +6,6 @@ layout: default
 
 
 
-Wähle deine gewünschte Parkzeit:
-
-<input type="datetime-local" id="datepicker">
-
-
-Hier unsere Vorschläge
+Wähle deine gewünschte Parkzeit: <input type="datetime-local" id="datepicker">
 
 <div id="chart-container" style="height: 400px;"></div>
