@@ -1,4 +1,4 @@
-const apiUrl = 'https://api.example.com/data';
+const apiUrl = 'https://parcaster-2ff51b8db57e.herokuapp.com/metadata';
 
 fetch(apiUrl)
     .then(response => {
