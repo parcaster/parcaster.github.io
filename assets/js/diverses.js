@@ -47,10 +47,10 @@ async function getPrediction(){
 async function asyncCall() {
   const metadata = await getMetadata();
   document.getElementById('btn_prediction').onclick = function() {
-    const prediction = await getPrediction();
+    const prediction = getPrediction();
     
     // Highchart-Grafik erstellen
-    var data = Object.values(prediction);
+    var data = prediction.;
     console.log("data", data)
     var pp_labels = Object.keys(prediction);
     console.log("pp_labels", pp_labels)
