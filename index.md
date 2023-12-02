@@ -7,5 +7,6 @@ layout: default
 
 
 Wähle deine gewünschte Parkzeit: <input type="datetime-local" id="datepicker">
+<button type="button">Vorhersage starten</button>
 
 <div id="chart-container" style="height: 400px;"></div>
