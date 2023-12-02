@@ -2,6 +2,8 @@
 layout: default
 ---
 <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+<p>{{ site.description | default: site.github.project_tagline }}</p>
+
 
 
 Wähle deine gewünschte Parkzeit:
