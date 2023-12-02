@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             align: 'left'
         },
         xAxis: {
-            categories: ['Africa', 'America', 'Asia', 'Europe', 'test],
+            categories: ['Africa', 'America', 'Asia', 'Europe', 'test'],
             title: {
                 text: null
             },
