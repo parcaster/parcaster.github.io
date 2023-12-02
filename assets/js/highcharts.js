@@ -24,6 +24,12 @@ async function getMetadata(){
   return metadata;
 }
 
+const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({"date": "2023-12-03 00:00"})
+};
+
 async function getPrediction(){
   const response = await fetch(apiUrlPrediction, requestOptions)
   const prediction = await response.json();
