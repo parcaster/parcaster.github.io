@@ -26,12 +26,14 @@ async function getMetadata(){
 
 // Value from Datapicker
 var datetime = document.getElementById('datepicker').value;
-console.log(datetime);
+const [date, time] = datetime.split('T');
+const formattedDate = `${date} ${time}`
+console.log(formattedDate);
 
 const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(datetime)
+    body: JSON.stringify(formattedDate)
 };
 
 async function getPrediction(){
