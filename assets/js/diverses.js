@@ -19,11 +19,17 @@ const apiUrlPrediction = 'https://parcaster-2ff51b8db57e.herokuapp.com/predict';
 const chartContainerId = 'chart-container'
 const errorContainerId = 'error-container'
 
+function encodeSpecialChars(str) {
+    return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 async function getPrediction(requestOptions) {
     const response = await fetch(apiUrlPrediction, requestOptions)
-    const prediction = await response.json();
-    console.log(prediction);
-    return prediction;
+    if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
+    }
+
+    return await response.json();
 }
 
 document.getElementById('btn_prediction').onclick = async function () {
@@ -52,6 +58,9 @@ document.getElementById('btn_prediction').onclick = async function () {
             chart: {
                 type: 'bar',
                 renderTo: chartContainerId
+            },
+            style: {
+                font: 'Helvetica'
             },
             title: {
                 text: 'Unsere Vorhersage',
@@ -108,7 +117,7 @@ document.getElementById('btn_prediction').onclick = async function () {
         const chart = new Highcharts.Chart(chartConfig);
     } catch (e) {
         console.error("Error", e);
-        document.getElementById(errorContainerId).innerHTML = `Ein Fehler ist aufgetreten: ${e}`;
+        document.getElementById(errorContainerId).innerHTML = "Ein Fehler ist aufgetreten. Bitte überprüfe das eingegebene Datum.<br />" + encodeSpecialChars(e);
         document.getElementById(chartContainerId).innerHTML = "";
     }
 }
