@@ -33,7 +33,7 @@ console.log(formattedDate);
 const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(formattedDate)
+    body: JSON.stringify({date: formattedDate})
 };
 
 async function getPrediction(){
