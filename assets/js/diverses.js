@@ -104,7 +104,7 @@ document.getElementById('btn_prediction').onclick = async function () {
         const chart = new Highcharts.Chart(chartConfig);
     } catch (e) {
         console.error("Error", e);
-        document.getElementById(errorContainerId).innerHTML = "Ein Fehler ist aufgetreten. Bitte überprüfe das eingegebene Datum. <br /> Error:" + encodeSpecialChars(e);
+        document.getElementById(errorContainerId).innerHTML = "Ein Fehler ist aufgetreten. Bitte überprüfe das eingegebene Datum.<br />" + encodeSpecialChars(e);
         document.getElementById(chartContainerId).innerHTML = "";
     }
 }
