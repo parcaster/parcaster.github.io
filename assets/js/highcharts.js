@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         colors:['#267CB9'],
         series: [{
+            showInLegend: false,
             data: data
         }]
     };
