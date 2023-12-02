@@ -1,6 +1,29 @@
+// Funktion, um alle Werte unter dem Schlüssel "label" zu extrahieren
+function extractValuesByLabel(obj, label, result = []) {
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            const value = obj[key];
+
+            if (key === label) {
+                result.push(value);
+            } else if (typeof value === 'object') {
+                extractValuesByLabel(value, label, result);
+            }
+        }
+    }
+
+    return result;
+}
+
+// Alle Werte unter dem Schlüssel "label" extrahieren
+const labelValues = extractValuesByLabel(metadata, 'label');
+console.log('Werte unter dem Schlüssel "label":', labelValues);
+
+// Highchart-Grafik erstellen
 document.addEventListener('DOMContentLoaded', function() {
     // Daten für das Diagramm
     var data = [5, 10, 15, 20, 25];
+    var pp_labels = [5, 10, 15, 20, 25];
 
     // Konfiguration für das Balkendiagramm
     var chartConfig = {
@@ -13,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             align: 'left'
         },
         xAxis: {
-            categories: ['A', 'B', 'C', 'D', 'E'],
+            categories: pp_labels,
             title: {
                 text: null
             },
