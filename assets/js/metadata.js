@@ -6,3 +6,5 @@ async function getMetadata(){
     console.log(metadata);
 }
 getMetadata();
+
+export { metadata };
