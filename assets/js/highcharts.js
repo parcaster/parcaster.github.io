@@ -1,3 +1,5 @@
+import { metadata } from './metadata.js';
+
 // Funktion, um alle Werte unter dem Schlüssel "label" zu extrahieren
 function extractValuesByLabel(obj, label, result = []) {
     for (const key in obj) {
