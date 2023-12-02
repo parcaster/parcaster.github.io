@@ -19,6 +19,10 @@ const apiUrlPrediction = 'https://parcaster-2ff51b8db57e.herokuapp.com/predict';
 const chartContainerId = 'chart-container'
 const errorContainerId = 'error-container'
 
+function encodeSpecialChars(str) {
+    return str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 async function getPrediction(requestOptions) {
     const response = await fetch(apiUrlPrediction, requestOptions)
     if (!response.ok) {
@@ -100,7 +104,7 @@ document.getElementById('btn_prediction').onclick = async function () {
         const chart = new Highcharts.Chart(chartConfig);
     } catch (e) {
         console.error("Error", e);
-        document.getElementById(errorContainerId).innerHTML = "Ein Fehler ist aufgetreten. Bitte überprüfen Sie das Eingabedatum. <br /> Error:" + encodeURIComponent(e);
+        document.getElementById(errorContainerId).innerHTML = "Ein Fehler ist aufgetreten. Bitte überprüfen Sie das eingegebene Datum. <br /> Error:" + encodeSpecialChars(e);
         document.getElementById(chartContainerId).innerHTML = "";
     }
 }
