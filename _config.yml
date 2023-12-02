@@ -4,6 +4,6 @@ plugins:
 
 title: Parcaster St. Gallen
 logo: /assets/img/logo_parcaster.png
-description: Deine persönliche Parkplatzempfehlung.
+description: Deine persönliche Parkplatzempfehlung für die Stadt St. Gallen.
 show_downloads: false
 theme: jekyll-theme-minimal
