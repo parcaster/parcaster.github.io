@@ -6,7 +6,7 @@ layout: default
 
 
 
-Wähle deine gewünschte Parkzeit (maximal sieben Tage in die Zukunft): <input type="datetime-local" id="datepicker">
+Wähle deine gewünschte Parkzeit (maximal sieben Tage in die Zukunft): <br><input type="datetime-local" id="datepicker">
 <br>
 <button type="button" id="btn_prediction">Vorhersage starten</button>
 

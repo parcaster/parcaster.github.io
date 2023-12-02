@@ -20,7 +20,7 @@ const chartContainerId = 'chart-container'
 const errorContainerId = 'error-container'
 
 function encodeSpecialChars(str) {
-    return str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 async function getPrediction(requestOptions) {
