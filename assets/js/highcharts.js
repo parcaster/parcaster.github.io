@@ -1,20 +1,32 @@
-import { getMetadata } from './metadata.js';
+// Datepicker
+var now = new Date();
+now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+document.getElementById('datepicker').value = now.toISOString().slice(0,16);
 
-// Funktion, um alle Werte unter dem Schlüssel "label" zu extrahieren
-function extractValuesByLabel(obj, label, result = []) {
-    for (const key in obj) {
-        if (obj.hasOwnProperty(key)) {
-            const value = obj[key];
+document.addEventListener('DOMContentLoaded', function() {
+  var today = new Date();
+  var futureDate = new Date();
+  futureDate.setDate(today.getDate() + 6); // Hier wird das Höchstdatum auf 7 Tage in der Zukunft gesetzt
 
-            if (key === label) {
-                result.push(value);
-            } else if (typeof value === 'object') {
-                extractValuesByLabel(value, label, result);
-            }
-        }
-    }
+  var datetimeInput = document.getElementById('datepicker');
+  datetimeInput.min = today.toISOString().slice(0, 16); // Das Mindestdatum ist das aktuelle Datum
+  datetimeInput.max = futureDate.toISOString().slice(0, 16); // Das Höchstdatum ist 7 Tage in der Zukunft
+});
 
-    return result;
+// Get Metadata and Prediciton
+const apiUrlMetadata = 'https://parcaster-2ff51b8db57e.herokuapp.com/metadata';
+const apiUrlPrediction = 'https://parcaster-2ff51b8db57e.herokuapp.com/predict';
+
+async function getMetadata(){
+    const response = await fetch(apiUrlMetadata);
+    const metadata = await response.json();
+    console.log(metadata);
+}
+
+async function getPrediction(){
+    fetch(apiUrlPrediction, requestOptions)
+        .then(response => response.json())
+        .then(data => console.log(data));
 }
 
 async function asyncCall() {
