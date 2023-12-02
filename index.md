@@ -12,4 +12,5 @@ Wähle deine gewünschte Parkzeit:
 
 
 Hier unsere Vorschläge
-Plot
+
+<div id="chart-container" style="height: 400px;"></div>
