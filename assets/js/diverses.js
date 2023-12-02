@@ -51,7 +51,7 @@ async function asyncCall() {
                 renderTo: 'chart-container'
             },
             title: {
-                text: 'Unsere Vorschläge für dich',
+                text: 'Unsere Vorhersage',
                 align: 'left'
             },
             xAxis: {
