@@ -24,6 +24,10 @@ async function getMetadata(){
   return metadata;
 }
 
+// Value from Datapicker
+var datetime = document.getElementById('datepicker').value;
+console.log(datetime);
+
 const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
