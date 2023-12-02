@@ -62,6 +62,11 @@ document.getElementById('btn_prediction').onclick = async function () {
                 title: {
                     text: null
                 },
+                labels: {
+                    style: {
+                        fontFamily: 'Helvetica, Arial, sans-serif'
+                    }
+                },
                 gridLineWidth: 1,
                 lineWidth: 0
             },
@@ -70,6 +75,11 @@ document.getElementById('btn_prediction').onclick = async function () {
                 title: {
                     text: 'Anzahl freie Parkplätze',
                     align: 'high'
+                },
+                labels: {
+                    style: {
+                        fontFamily: 'Helvetica, Arial, sans-serif'
+                    }
                 },
                 gridLineWidth: 0
             },
