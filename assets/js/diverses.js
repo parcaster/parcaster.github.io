@@ -16,19 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // Get Metadata and Prediciton
 const apiUrlPrediction = 'https://parcaster-2ff51b8db57e.herokuapp.com/predict';
 
-// Value from Datapicker
-const datetime = document.getElementById('datepicker').value;
-const [date, time] = datetime.split('T');
-const formattedDate = `${date} ${time}`
-console.log(formattedDate);
 
-const requestOptions = {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({date: formattedDate})
-};
-
-async function getPrediction() {
+async function getPrediction(requestOptions) {
     const response = await fetch(apiUrlPrediction, requestOptions)
     const prediction = await response.json();
     console.log(prediction);
@@ -38,7 +27,19 @@ async function getPrediction() {
 // Highchart-Graph
 async function asyncCall() {
     document.getElementById('btn_prediction').onclick = async function () {
-        const {labels, labels_readable, max_capacity, predictions} = await getPrediction();
+        // Value from Datapicker
+        const datetime = document.getElementById('datepicker').value;
+        const [date, time] = datetime.split('T');
+        const formattedDate = `${date} ${time}`
+        console.log(formattedDate);
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({date: formattedDate})
+        };
+
+        const {labels, labels_readable, max_capacity, predictions} = await getPrediction(requestOptions);
 
         // Highchart-Grafik erstellen
         console.log("prediction", {labels, labels_readable, max_capacity, predictions});
