@@ -21,9 +21,11 @@ const errorContainerId = 'error-container'
 
 async function getPrediction(requestOptions) {
     const response = await fetch(apiUrlPrediction, requestOptions)
-    const prediction = await response.json();
-    console.log(prediction);
-    return prediction;
+    if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
+    }
+
+    return await response.json();
 }
 
 document.getElementById('btn_prediction').onclick = async function () {
@@ -98,7 +100,7 @@ document.getElementById('btn_prediction').onclick = async function () {
         const chart = new Highcharts.Chart(chartConfig);
     } catch (e) {
         console.error("Error", e);
-        document.getElementById(errorContainerId).innerHTML = `Ein Fehler ist aufgetreten: ${e}`;
+        document.getElementById(errorContainerId).innerHTML = "Ein Fehler ist aufgetreten. Bitte überprüfen Sie das Eingabedatum. <br /> Error:" + encodeURIComponent(e);
         document.getElementById(chartContainerId).innerHTML = "";
     }
 }
