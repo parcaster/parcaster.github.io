@@ -51,8 +51,8 @@ async function asyncCall() {
     // Highchart-Grafik erstellen
     document.addEventListener('DOMContentLoaded', function() {
         // Daten für das Diagramm
-        var data = [5, 10, 15, 20, 25];
-        var pp_labels = [5, 10, 15, 20, 25];
+        var data = Object.values(prediction);
+        var pp_labels = Object.keys(prediction);
     
         // Konfiguration für das Balkendiagramm
         var chartConfig = {
