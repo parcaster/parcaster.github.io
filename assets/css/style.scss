@@ -9,17 +9,17 @@ input[type="datetime-local"] {
     color: #267CB9;
 }
 
-.button {
-  border: none;
-  color: white;
-  background-color: #267CB9;
-  border: 2px solid #267CB9;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
+button[type="button"] {
+    border: none;
+    color: white;
+    background-color: #267CB9;
+    border: 2px solid #267CB9;
+    padding: 13px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 20px 0px;
+    transition-duration: 0.4s;
+    cursor: pointer
 }
