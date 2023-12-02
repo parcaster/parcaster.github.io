@@ -59,6 +59,9 @@ document.getElementById('btn_prediction').onclick = async function () {
                 type: 'bar',
                 renderTo: chartContainerId
             },
+            style: {
+                fontFamily: '"Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif'
+            },
             title: {
                 text: 'Unsere Vorhersage',
                 align: 'left'
