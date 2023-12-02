@@ -60,7 +60,7 @@ document.getElementById('btn_prediction').onclick = async function () {
                 renderTo: chartContainerId
             },
             style: {
-                fontFamily: '"Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif'
+                fontFamily: 'Helvetica'
             },
             title: {
                 text: 'Unsere Vorhersage',
