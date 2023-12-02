@@ -50,8 +50,8 @@ async function asyncCall() {
     const prediction = getPrediction();
     
     // Highchart-Grafik erstellen
-    var data = prediction.;
-    console.log("data", data)
+    //var data = prediction.;
+    console.log("prediction", prediction);
     var pp_labels = Object.keys(prediction);
     console.log("pp_labels", pp_labels)
     
