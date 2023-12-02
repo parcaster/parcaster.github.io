@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             gridLineWidth: 0
         },
         tooltip: {
-            valueSuffix: ' millions'
+            valueSuffix: ' freie Parkplätze'
         },
         plotOptions: {
             bar: {
@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 groupPadding: 0.1
             }
         },
+        colors:['#267CB9'],
         series: [{
             data: data
         }]
