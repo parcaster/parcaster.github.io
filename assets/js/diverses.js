@@ -31,7 +31,7 @@ console.log(datetime);
 const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({"date": "2023-12-03 00:00"})
+    body: JSON.stringify(datetime)
 };
 
 async function getPrediction(){
