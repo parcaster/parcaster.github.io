@@ -54,7 +54,7 @@ document.getElementById('btn_prediction').onclick = async function () {
                 renderTo: chartContainerId
             },
             title: {
-                text: 'Unsere Vorschläge für dich',
+                text: 'Unsere Vorhersage',
                 align: 'left'
             },
             xAxis: {
