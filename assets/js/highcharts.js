@@ -18,22 +18,23 @@ const apiUrlMetadata = 'https://parcaster-2ff51b8db57e.herokuapp.com/metadata';
 const apiUrlPrediction = 'https://parcaster-2ff51b8db57e.herokuapp.com/predict';
 
 async function getMetadata(){
-    const response = await fetch(apiUrlMetadata);
-    const metadata = await response.json();
-    console.log(metadata);
+  const response = await fetch(apiUrlMetadata);
+  const metadata = await response.json();
+  console.log(metadata);
+  return metadata;
 }
 
 async function getPrediction(){
-    fetch(apiUrlPrediction, requestOptions)
-        .then(response => response.json())
-        .then(data => console.log(data));
+  const response = await fetch(apiUrlPrediction, requestOptions)
+  const prediction = await response.json();
+  console.log(prediction);
+  return prediction;
 }
 
+// Highchart-Graph
 async function asyncCall() {
-    const metadata = await getMetadata();
-    
-    const labelValues = extractValuesByLabel(metadata, 'label');
-    console.log('Werte unter dem Schlüssel "label":', labelValues);
+  const metadata = await getMetadata();
+  const prediction = await getPrediction();
     
     // Highchart-Grafik erstellen
     document.addEventListener('DOMContentLoaded', function() {
