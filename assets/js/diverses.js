@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // Get Metadata and Prediciton
 const apiUrlPrediction = 'https://parcaster-2ff51b8db57e.herokuapp.com/predict';
 
+const chartContainerId = 'chart-container'
+const errorContainerId = 'error-container'
 
 async function getPrediction(requestOptions) {
     const response = await fetch(apiUrlPrediction, requestOptions)
@@ -24,14 +26,16 @@ async function getPrediction(requestOptions) {
     return prediction;
 }
 
-// Highchart-Graph
-async function asyncCall() {
-    document.getElementById('btn_prediction').onclick = async function () {
+document.getElementById('btn_prediction').onclick = async function () {
+    document.getElementById(errorContainerId).innerHTML = "";
+    document.getElementById(chartContainerId).innerHTML = "";
+
+    try {
         // Value from Datapicker
         const datetime = document.getElementById('datepicker').value;
         const [date, time] = datetime.split('T');
         const formattedDate = `${date} ${time}`
-        console.log(formattedDate);
+        console.log("Predicting", formattedDate);
 
         const requestOptions = {
             method: 'POST',
@@ -41,14 +45,13 @@ async function asyncCall() {
 
         const {labels, labels_readable, max_capacity, predictions} = await getPrediction(requestOptions);
 
-        // Highchart-Grafik erstellen
-        console.log("prediction", {labels, labels_readable, max_capacity, predictions});
+        console.log("Prediction", {labels, labels_readable, max_capacity, predictions});
 
         // Konfiguration für das Balkendiagramm
         const chartConfig = {
             chart: {
                 type: 'bar',
-                renderTo: 'chart-container'
+                renderTo: chartContainerId
             },
             title: {
                 text: 'Unsere Vorschläge für dich',
@@ -93,7 +96,10 @@ async function asyncCall() {
 
         // Diagramm erstellen
         const chart = new Highcharts.Chart(chartConfig);
+    } catch (e) {
+        console.error("Error", e);
+        document.getElementById(errorContainerId).innerHTML = `Ein Fehler ist aufgetreten: ${e}`;
+        document.getElementById(chartContainerId).innerHTML = "";
     }
 }
 
-asyncCall().catch(error => console.error(error));
