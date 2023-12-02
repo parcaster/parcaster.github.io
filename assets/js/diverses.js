@@ -60,7 +60,7 @@ document.getElementById('btn_prediction').onclick = async function () {
                 renderTo: chartContainerId
             },
             style: {
-                fontFamily: 'Helvetica'
+                font: 'Helvetica'
             },
             title: {
                 text: 'Unsere Vorhersage',
